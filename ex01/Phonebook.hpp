@@ -10,6 +10,7 @@ public:
 	void addContact();
 	void searchContact();
 	void printContact(int index);
+	void chooseContact(int index);
 private:
 	Contacts _contacts[8];
 	int _index;

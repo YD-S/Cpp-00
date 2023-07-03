@@ -14,43 +14,33 @@ Phonebook::~Phonebook() {
 void Phonebook::addContact() {
 	std::string input;
 	if (this->_index < 8) {
-		std::cout << "First Name: ";
-		std::cin >> input;
-		this->_contacts[this->_index].setFirstName(input);
-		std::cout << "Last Name: ";
-		std::cin >> input;
-		this->_contacts[this->_index].setLastName(input);
-		std::cout << "Nickname: ";
-		std::cin >> input;
-		this->_contacts[this->_index].setNickname(input);
-		std::cout << "Phone Number: ";
-		std::cin >> input;
-		this->_contacts[this->_index].setPhoneNumber(input);
-		std::cout <<  "Darkest Secret: ";
-		std::cin >> input;
-		this->_contacts[this->_index].setDarkestSecret(input);
+		Phonebook.chooseContact(this->_index);
 		this->_index++;
 	}
 	else if (this->aux < 8){
 		std::cout << "Phonebook is full! Overwriting the ";
 		std::cout << this->aux << " contact." << std::endl;
-		std::cout << "First Name: ";
-		std::cin >> input;
-		this->_contacts[this->aux].setFirstName(input);
-		std::cout << "Last Name: ";
-		std::cin >> input;
-		this->_contacts[this->aux].setLastName(input);
-		std::cout << "Nickname: ";
-		std::cin >> input;
-		this->_contacts[this->aux].setNickname(input);
-		std::cout << "Phone Number: ";
-		std::cin >> input;
-		this->_contacts[this->aux].setPhoneNumber(input);
-		std::cout <<  "Darkest Secret: ";
-		std::cin >> input;
-		this->_contacts[this->aux].setDarkestSecret(input);
+		Phonebook.chooseContact(this->aux);
 		this->aux++;
 	}
+}
+
+void Phonebook::chooseContact(int index) {
+	std::cout << "First Name: ";
+	std::cin >> input;
+	this->_contacts[index].setFirstName(input);
+	std::cout << "Last Name: ";
+	std::cin >> input;
+	this->_contacts[index].setLastName(input);
+	std::cout << "Nickname: ";
+	std::cin >> input;
+	this->_contacts[index].setNickname(input);
+	std::cout << "Phone Number: ";
+	std::cin >> input;
+	this->_contacts[index].setPhoneNumber(input);
+	std::cout <<  "Darkest Secret: ";
+	std::cin >> input;
+	this->_contacts[index].setDarkestSecret(input);
 }
 
 void Phonebook::printContact(int index){
