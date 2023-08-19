@@ -12,20 +12,20 @@ Phonebook::~Phonebook() {
 }
 
 void Phonebook::addContact() {
-	std::string input;
 	if (this->_index < 8) {
-		Phonebook.chooseContact(this->_index);
+		Phonebook::chooseContact(this->_index);
 		this->_index++;
 	}
 	else if (this->aux < 8){
 		std::cout << "Phonebook is full! Overwriting the ";
 		std::cout << this->aux << " contact." << std::endl;
-		Phonebook.chooseContact(this->aux);
+		Phonebook::chooseContact(this->aux);
 		this->aux++;
 	}
 }
 
 void Phonebook::chooseContact(int index) {
+	std::string input;
 	std::cout << "First Name: ";
 	std::cin >> input;
 	this->_contacts[index].setFirstName(input);
@@ -44,12 +44,18 @@ void Phonebook::chooseContact(int index) {
 }
 
 void Phonebook::printContact(int index){
-	std::cout << std::setw(10) << index << "|";
-	std::cout << std::setw(10) << this->_contacts[index].getFirstName() << "|";
-	std::cout << std::setw(10) << this->_contacts[index].getLastName() << "|";
-	std::cout << std::setw(10) << this->_contacts[index].getNickname() << "|";
-	std::cout << std::setw(10) << this->_contacts[index].getPhoneNumber() << "|";
-	std::cout << std::setw(10) << this->_contacts[index].getDarkestSecret() << std::endl;
+	std::cout << "Index     |";
+	std::cout << "First Name|";
+	std::cout << "Last Name |";
+	std::cout << "Nickname  |";
+	std::cout << "Phone Num |";
+	std::cout << "Darkest Sec" << std::endl;
+	std::cout << index << "|";
+	std::cout << this->_contacts[index].getFirstName() << "|";
+	std::cout << this->_contacts[index].getLastName() << "|";
+	std::cout << this->_contacts[index].getNickname() << "|";
+	std::cout << this->_contacts[index].getPhoneNumber() << "|";
+	std::cout << this->_contacts[index].getDarkestSecret() << std::endl;
 }
 
 
