@@ -14,6 +14,7 @@ public:
 	void setNickname(std::string nickname);
 	void setPhoneNumber(std::string phoneNumber);
 	void setDarkestSecret(std::string darkestSecret);
+	int check_If_Number(std::string str);
 
 
 	std::string getFirstName();

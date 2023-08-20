@@ -41,7 +41,23 @@ void Contacts::setNickname(std::string nickname) {
 	}
 }
 
+int Contacts::check_If_Number(std::string str) {
+	for (int i = 0; i < (int)str.length(); i++) {
+		if (isdigit(str[i]) == false)
+			return (0);
+	}
+	return (1);
+}
+
 void Contacts::setPhoneNumber(std::string phoneNumber) {
+	if(!check_If_Number(phoneNumber))
+	{
+		std::cout << "Phone number must be a number! try again!!" << std::endl;
+		std::cout << "Enter phone number: ";
+		std::cin >> phoneNumber;
+		setPhoneNumber(phoneNumber);
+		return;
+	}
 	int i = phoneNumber.length();
 	if (i < 10)
 		this->_phoneNumber = phoneNumber;
